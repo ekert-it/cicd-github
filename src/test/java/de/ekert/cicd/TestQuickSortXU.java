@@ -17,8 +17,8 @@ public class TestQuickSortXU {
 
     //Assert.assertTrue (false);
 
-    for (int i = 0; i < result.length; i++) {
-      Assert.assertTrue(true);
+    for (int i = 0; i < result.length -1; i++) {
+      Assert.assertTrue(result[i] <= result[i+1]);
     }
 
     System.out.println("Test finished.");
