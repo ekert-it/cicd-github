@@ -16,6 +16,6 @@ public class TestQuickSortXU {
     Integer [] result = QuickSort.sort(data.clone());
 
     //Assert.assertTrue (false);
-
+    
   }
 }
