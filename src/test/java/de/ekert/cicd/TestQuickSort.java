@@ -28,7 +28,7 @@ public class TestQuickSort {
 			dataList.remove(i);
 		}
 	}
-
+ 
 	@Test
 	public void testOrder() {
 		Integer [] data = QuickSort.generateData(COUNT);
