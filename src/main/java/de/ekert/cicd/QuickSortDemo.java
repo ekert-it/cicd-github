@@ -6,22 +6,42 @@ package de.ekert.cicd;
  *
  */
 public class QuickSortDemo {
+  private static final Integer DEFAULT = 30;
 
 	public static void main(String[] args) {
-		int count = 30;
+    // interpret number argument
+		int count = getCount (args);
+
+    // generate some random data + print to console
+		Integer[] data = QuickSort.generateData(count);
+		System.out.println(QuickSort.arrToString(data));
+
+    // sort data + print to console
+		Integer[] result = QuickSort.sort(data);
+		System.out.println(QuickSort.arrToString(result));
+
+	}
+
+
+
+
+
+
+//**********  Helper Methods ******************************
+  private static Integer getCount(String[] args) {
+    int count = DEFAULT;
 		if (args.length > 0) {
 			try {
 				count = Integer.parseInt(args[0]);
 
 			} catch (NumberFormatException e) {
-				e.printStackTrace();
+        System.err.println ("Could not interpret \"" + args[0] + "\". Defaulting to " + DEFAULT);
 			}
-			Integer[] data = QuickSort.generateData(count);
-			System.out.println(QuickSort.arrToString(data));
-
-			Integer[] result = QuickSort.sort(data);
-			System.out.println(QuickSort.arrToString(result));
 		}
-
-	}
+    if (count < 0) {
+      System.err.println ("Cannot create negative size array. Defaulting to " + DEFAULT);
+      count = 30;
+    }
+    return count;
+  }
 }
