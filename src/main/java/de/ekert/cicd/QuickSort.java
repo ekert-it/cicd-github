@@ -21,15 +21,22 @@ public class QuickSort {
 	
 	
 	/**
-	 * A convenience method to generate an Array of Integer of length count with random content
+	 * A convenience method to generate an Array of Integer of length count with
+	 * random content from -count .. +count
+	 * 
 	 * @param count
 	 * @return
 	 */
 	public static Integer[] generateData(int count) {
 		Random rand = new Random();
+    Random neg = new Random();
 		Integer [] arr = new Integer [count];
 		for (Integer i = 0; i < count; i++) {
-			arr[i] = rand.nextInt(count);
+      int r = rand.nextInt(count+1);
+      if (neg.nextInt(2) == 1) {
+        r = -1 * r;
+      }
+			arr[i] = r;
 		}
 		return arr;
 	}
