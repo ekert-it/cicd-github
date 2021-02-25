@@ -15,7 +15,11 @@ public class TestQuickSortXU {
     Integer [] data = QuickSort.generateData(COUNT);
     Integer [] result = QuickSort.sort(data.clone());
 
-    //Assert.assertTrue (false);
-    
+    for (int i = 0; i<result.length-1; i++) {
+      int remember = result[i];
+      Assert.assertTrue(result[i+1] >= remember);
+
+    }
+
   }
 }
